@@ -1,0 +1,61 @@
+body {
+  background: black;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin-top: 32px;
+}
+
+p {
+  font-size: 14px;
+  text-align: justify;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 20px;
+}
+h2 {
+  font-size: 18px;
+}
+h3 {
+  font-size: 16px;
+}
+
+code {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.page{
+  position: relative;
+  width: 600px;
+  box-sizing: border-box;
+}
+
+.red{
+  color: #FF0000;
+}
+.orrange {
+  color: #FFC700;
+}
+.yellow {
+  color: #EBFF00;
+}
+.greeen {
+  color: #34CE27;
+}
+.blue {
+  color: #0047FF;
+}
+.purple {
+  color: #BD00FF;
+}
+.gray {
+  color: rgba(255, 255, 255, 0.5);
+}
