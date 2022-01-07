@@ -10,6 +10,7 @@ import (
 	"github.com/gofiber/template/html"
 	"github.com/gomarkdown/markdown"
 	"github.com/gomarkdown/markdown/parser"
+	"github.com/joho/godotenv"
 )
 
 type Post struct {
@@ -56,7 +57,13 @@ func parsePost(name string) []byte {
 }
 
 func init() {
-	log.Print("test")
+	err := godotenv.Load()
+	if err != nil {
+		log.Printf("Unable to load env values: %v\n", err)
+	} else {
+		log.Println("Loaded env values successfully")
+	}
+
 	getPosts()
 }
 
@@ -88,5 +95,12 @@ func main() {
 		}
 	})
 
-	log.Fatal(app.Listen(":3000"))
+	listener := os.Getenv("SERVER_HOST") + ":" + os.Getenv("SERVER_PORT")
+	err := app.Listen(listener)
+	if err != nil {
+		log.Println("Unable to start server on [" + listener + "]")
+		panic(err)
+	} else {
+		log.Println("Listening on [" + listener + "]")
+	}
 }
